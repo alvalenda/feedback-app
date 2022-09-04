@@ -1,17 +1,17 @@
 const RattingSelect = ({ select, selected }) => {
   const handleChange = (e) => {
-    const newRating = +e.target.value;
-    select(newRating);
-  };
+    const newRating = +e.target.value
+    select(newRating)
+  }
 
   return (
-    <ul className="rating">
+    <ul className='rating'>
       {Array.from({ length: 10 }, (_, i) => (
         <li key={`rating-${i + 1}`}>
           <input
-            type="radio"
+            type='radio'
             id={`num${i + 1}`}
-            name="rating"
+            name='rating'
             value={i + 1}
             onChange={handleChange}
             checked={selected === i + 1}
@@ -20,7 +20,7 @@ const RattingSelect = ({ select, selected }) => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default RattingSelect;
+export default RattingSelect
