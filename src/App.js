@@ -5,7 +5,6 @@ import FeedbackList from './components/FeedbackList'
 import { feedbackData, findFreeId } from './data/FeedbackData'
 import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
-import Card from './components/shared/Card'
 import { AboutIconLink } from './components/AboutIconLink'
 import AboutPage from './pages/AboutPage'
 
@@ -38,7 +37,6 @@ function App() {
                   feedback={feedback}
                   handleDelete={deleteFeedback}
                 />
-                {/* <Card> Hello World of Cards </Card> */}
                 <AboutIconLink />
               </>
             }
