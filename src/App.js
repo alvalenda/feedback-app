@@ -23,7 +23,7 @@ function App() {
     <>
       <Header />
       <div className='container'>
-        <FeedbackForm handleAdd={addFeedback} />
+        <FeedbackForm handleAdd={addFeedback} reverse={true} />
         <FeedbackStats feedback={feedback} />
         <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
         <Card> Hello World of Card </Card>

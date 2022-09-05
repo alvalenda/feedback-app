@@ -1,11 +1,11 @@
-const RattingSelect = ({ select, selected }) => {
+const RattingSelect = ({ select, selected, reverse }) => {
   const handleChange = (e) => {
     const newRating = +e.target.value
     select(newRating)
   }
 
   return (
-    <ul className='rating'>
+    <ul className={`rating ${reverse && 'reverse'}`}>
       {Array.from({ length: 10 }, (_, i) => (
         <li key={`rating-${i + 1}`}>
           <input
@@ -21,6 +21,10 @@ const RattingSelect = ({ select, selected }) => {
       ))}
     </ul>
   )
+}
+
+RattingSelect.defaultProps = {
+  reverse: false,
 }
 
 export default RattingSelect

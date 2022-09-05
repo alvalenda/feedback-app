@@ -3,7 +3,7 @@ import Card from './shared/Card'
 import Button from './shared/Button'
 import RattingSelect from './RattingSelect'
 
-const FeedbackForm = ({ handleAdd }) => {
+const FeedbackForm = ({ handleAdd, reverse }) => {
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [message, setMessage] = useState('')
@@ -46,21 +46,22 @@ const FeedbackForm = ({ handleAdd }) => {
   }
 
   return (
-    <Card>
+    <Card reverse={true}>
       <form onSubmit={handleSubmit}>
         <h2>How would you rate your service with us?</h2>
         <RattingSelect
           select={(rating) => setRating(rating)}
           selected={rating}
+          reverse={true}
         />
-        <div className='input-group'>
+        <div className={`input-group ${reverse && 'reverse'}`}>
           <input
             onChange={handleTextChange}
             type='text'
             placeholder='Write a review'
             value={text}
           />
-          <Button type='submit' isDisabled={btnDisabled}>
+          <Button type='submit' version={'secondary'} isDisabled={btnDisabled}>
             Send
           </Button>
         </div>
@@ -68,6 +69,10 @@ const FeedbackForm = ({ handleAdd }) => {
       </form>
     </Card>
   )
+}
+
+FeedbackForm.defaultProps = {
+  reverse: false,
 }
 
 export default FeedbackForm
