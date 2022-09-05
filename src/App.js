@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
 import Header from './components/Header'
 import FeedbackList from './components/FeedbackList'
@@ -5,6 +6,7 @@ import { feedbackData, findFreeId } from './data/FeedbackData'
 import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
 import Card from './components/shared/Card'
+import AboutPage from './pages/AboutPage'
 
 function App() {
   const [feedback, setFeedback] = useState(feedbackData)
@@ -20,15 +22,29 @@ function App() {
   }
 
   return (
-    <>
+    <Router>
       <Header />
       <div className='container'>
-        <FeedbackForm handleAdd={addFeedback} reverse={true} />
-        <FeedbackStats feedback={feedback} />
-        <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
-        <Card> Hello World of Card </Card>
+        <Routes>
+          <Route
+            exact
+            path='/'
+            element={
+              <>
+                <FeedbackForm handleAdd={addFeedback} reverse={true} />
+                <FeedbackStats feedback={feedback} />
+                <FeedbackList
+                  feedback={feedback}
+                  handleDelete={deleteFeedback}
+                />
+                <Card> Hello World of Card </Card>
+              </>
+            }
+          />
+          <Route path='/about' element={<AboutPage />} />
+        </Routes>
       </div>
-    </>
+    </Router>
   )
 }
 
