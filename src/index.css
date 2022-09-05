@@ -101,6 +101,7 @@ header {
 
 [type='radio']:checked ~ label {
   background: #ff6a95;
+  box-shadow: inset 0 0 0 1px #fff;
   color: #fff;
 }
 
