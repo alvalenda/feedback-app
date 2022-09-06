@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 function FeedbackList({ handleDelete }) {
   const { feedback } = useContext(FeedbackContext)
+
   if (!feedback || feedback.length === 0) return <p>No Feedback Yet</p>
 
   return (
