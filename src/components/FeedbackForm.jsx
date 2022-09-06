@@ -10,7 +10,8 @@ const FeedbackForm = ({ reverse }) => {
   const [message, setMessage] = useState('')
   const [btnDisabled, setBtnDisabled] = useState(true)
 
-  const { addFeedback, feedbackEdit } = useContext(FeedbackContext)
+  const { addFeedback, feedbackEdit, updateFeedback } =
+    useContext(FeedbackContext)
 
   useEffect(() => {
     if (feedbackEdit.edit === true) {
@@ -44,13 +45,13 @@ const FeedbackForm = ({ reverse }) => {
 
     const newFeedback = { text, rating }
 
-    //   if (feedbackEdit.edit === true) {
-    //     updateFeedback(feedbackEdit.item.id, newFeedback);
-    //   } else {
-    //     addFeedback(newFeedback);
-    //   }
+    if (feedbackEdit.edit === true) {
+      updateFeedback(feedbackEdit.item.id, newFeedback)
+      feedbackEdit.edit = false
+    } else {
+      addFeedback(newFeedback)
+    }
 
-    addFeedback(newFeedback)
     //   setRating(10);
     setBtnDisabled(true)
     setText('')
