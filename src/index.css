@@ -13,6 +13,11 @@ body {
   line-height: 1.6;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 ul {
   list-style: none;
 }
@@ -50,6 +55,10 @@ header {
   font-size: 22px;
   font-weight: 600;
   text-align: center;
+}
+
+.card a {
+  color: #ff6a95;
 }
 
 .rating {
