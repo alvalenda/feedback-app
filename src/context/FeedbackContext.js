@@ -1,6 +1,4 @@
 import { createContext, useState, useEffect } from 'react'
-const baseURL = 'http://localhost:5000'
-
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
@@ -17,32 +15,30 @@ export const FeedbackProvider = ({ children }) => {
 
   // Fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch(`${baseURL}/feedback?_sort=id&_order=desc`)
+    const response = await fetch(`/feedback?_sort=id&_order=desc`)
     const data = await response.json()
 
     setFeedback(data)
     setIsLoading(false)
   }
 
-  // Add feedback
-  const addFeedback = (newFeedback) => {
-    newFeedback.id = findFreeId(feedback)
-    setFeedback([newFeedback, ...feedback])
-  }
-
-  // const addFeedback = async (newFeedback) => {
-  //   const response = await fetch('/feedback', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(newFeedback),
-  //   })
-
-  //   const data = await response.json()
-
-  //   setFeedback([data, ...feedback])
+  // Add feedback OLD
+  // const addFeedback = (newFeedback) => {
+  //   newFeedback.id = findFreeId(feedback)
+  //   setFeedback([newFeedback, ...feedback])
   // }
+  // Add feedback
+  const addFeedback = async (newFeedback) => {
+    const response = await fetch('/feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newFeedback),
+    })
+    const data = await response.json()
+    setFeedback([data, ...feedback])
+  }
 
   // Delete feedback
   const deleteFeedback = (id) => {
