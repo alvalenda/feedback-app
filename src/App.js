@@ -10,18 +10,6 @@ import AboutPage from './pages/AboutPage'
 import { FeedbackProvider } from './context/FeedbackContext'
 
 function App() {
-  const [feedback, setFeedback] = useState(feedbackData)
-
-  const addFeedback = (newFeedback) => {
-    newFeedback.id = findFreeId(feedback)
-    setFeedback([newFeedback, ...feedback])
-  }
-
-  const deleteFeedback = (id) => {
-    if (window.confirm('Are you sure you want to delete Feedback ' + id + '?'))
-      setFeedback(feedback.filter((item) => item.id !== id))
-  }
-
   return (
     <FeedbackProvider>
       <Router>
@@ -33,9 +21,9 @@ function App() {
               path='/'
               element={
                 <>
-                  <FeedbackForm handleAdd={addFeedback} reverse={true} />
+                  <FeedbackForm reverse={true} />
                   <FeedbackStats />
-                  <FeedbackList handleDelete={deleteFeedback} />
+                  <FeedbackList />
                   <AboutIconLink />
                 </>
               }

@@ -24,28 +24,38 @@ export const FeedbackProvider = ({ children }) => {
   }
 
   // Add feedback
-  const addFeedback = async (newFeedback) => {
-    const response = await fetch('/feedback', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newFeedback),
-    })
-
-    const data = await response.json()
-
-    setFeedback([data, ...feedback])
+  const addFeedback = (newFeedback) => {
+    newFeedback.id = findFreeId(feedback)
+    setFeedback([newFeedback, ...feedback])
   }
+
+  // const addFeedback = async (newFeedback) => {
+  //   const response = await fetch('/feedback', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(newFeedback),
+  //   })
+
+  //   const data = await response.json()
+
+  //   setFeedback([data, ...feedback])
+  // }
 
   // Delete feedback
-  const deleteFeedback = async (id) => {
-    if (window.confirm('Are you sure you want to delete?')) {
-      await fetch(`/feedback/${id}`, { method: 'DELETE' })
-
+  const deleteFeedback = (id) => {
+    if (window.confirm('Are you sure you want to delete Feedback ' + id + '?'))
       setFeedback(feedback.filter((item) => item.id !== id))
-    }
   }
+
+  // const deleteFeedback = async (id) => {
+  //   if (window.confirm('Are you sure you want to delete?')) {
+  //     await fetch(`/feedback/${id}`, { method: 'DELETE' })
+
+  //     setFeedback(feedback.filter((item) => item.id !== id))
+  //   }
+  // }
 
   // Update feedback item
   const updateFeedback = async (id, updItem) => {
@@ -93,6 +103,25 @@ export const FeedbackProvider = ({ children }) => {
       {children}
     </FeedbackContext.Provider>
   )
+}
+
+const findFreeId = (list) => {
+  const sortedById = listSortedById(list)
+  let previousId = 0
+
+  for (const item of sortedById) {
+    if (item.id !== previousId + 1) {
+      return previousId + 1
+    }
+    previousId = item.id
+  }
+
+  // console.log(previousId + 1)
+  return previousId + 1
+}
+
+const listSortedById = (list) => {
+  return list.slice().sort((a, b) => a.id - b.id)
 }
 
 export default FeedbackContext
