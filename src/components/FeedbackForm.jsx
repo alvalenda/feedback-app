@@ -10,6 +10,7 @@ const FeedbackForm = ({ reverse }) => {
   const [rating, setRating] = useState(10)
   const [message, setMessage] = useState('')
   const [btnDisabled, setBtnDisabled] = useState(true)
+
   const { addFeedback } = useContext(FeedbackContext)
 
   const handleTextChange = (e) => {
