@@ -1,22 +1,22 @@
 {
   "feedback": [
     {
-      "id": 1,
+      "text": "Best product I've ever had!!!! :)",
       "rating": 10,
-      "text": "lorem ipsum dolor sit amet, consectetur adip. consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      "id": 1
     },
     {
-      "id": 2,
+      "text": "First!!!!!! YOLO!",
       "rating": 9,
-      "text": "lorem ipsum dolor sit amet, consectetur adip. consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      "id": 2
     },
     {
-      "id": 3,
+      "text": "I've heard that studies show that travel provides longer term happiness than buying physical goods. The memories last a lifetime!",
       "rating": 8,
-      "text": "lorem ipsum dolor sit amet, consectetur adip. consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      "id": 3
     },
     {
-      "text": "Testando cum uma nota 7",
+      "text": "Seven and seven are fourteen, with another seven twenty one. Zaza is vanished, a zoom zoom zoom stays.",
       "rating": 7,
       "id": 4
     }
