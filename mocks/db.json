@@ -14,6 +14,11 @@
       "id": 3,
       "rating": 8,
       "text": "lorem ipsum dolor sit amet, consectetur adip. consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    },
+    {
+      "text": "Testando cum uma nota 7",
+      "rating": 7,
+      "id": 4
     }
   ]
 }
