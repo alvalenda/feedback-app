@@ -112,23 +112,22 @@ export const FeedbackProvider = ({ children }) => {
   )
 }
 
-const findFreeId = (list) => {
-  const sortedById = listSortedById(list)
-  let previousId = 0
+// const findFreeId = (list) => {
+//   const sortedById = listSortedById(list)
+//   let previousId = 0
 
-  for (const item of sortedById) {
-    if (item.id !== previousId + 1) {
-      return previousId + 1
-    }
-    previousId = item.id
-  }
+//   for (const item of sortedById) {
+//     if (item.id !== previousId + 1) {
+//       return previousId + 1
+//     }
+//     previousId = item.id
+//   }
 
-  // console.log(previousId + 1)
-  return previousId + 1
-}
+//   return previousId + 1
+// }
 
-const listSortedById = (list) => {
-  return list.slice().sort((a, b) => a.id - b.id)
-}
+// const listSortedById = (list) => {
+//   return list.slice().sort((a, b) => a.id - b.id)
+// }
 
 export default FeedbackContext
