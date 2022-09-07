@@ -2,11 +2,13 @@ import { createContext, useState, useEffect } from 'react'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true)
-  const [feedback, setFeedback] = useState([])
-  const [feedbackEdit, setFeedbackEdit] = useState({
-    item: {},
-    edit: false,
+  const [isLoading, setIsLoading] = useState(() => true)
+  const [feedback, setFeedback] = useState(() => [])
+  const [feedbackEdit, setFeedbackEdit] = useState(() => {
+    return {
+      item: {},
+      edit: false,
+    }
   })
 
   useEffect(() => {
@@ -18,8 +20,8 @@ export const FeedbackProvider = ({ children }) => {
     const response = await fetch(`/feedback?_sort=id&_order=desc`)
     const data = await response.json()
 
-    setFeedback(data)
-    setIsLoading(false)
+    setFeedback(() => data)
+    setIsLoading(() => false)
   }
 
   // Add feedback OLD
@@ -37,7 +39,7 @@ export const FeedbackProvider = ({ children }) => {
       body: JSON.stringify(newFeedback),
     })
     const data = await response.json()
-    setFeedback([data, ...feedback])
+    setFeedback(() => [data, ...feedback])
   }
 
   // Delete feedback OLD
@@ -51,7 +53,7 @@ export const FeedbackProvider = ({ children }) => {
     if (window.confirm('Are you sure you want to delete?')) {
       await fetch(`/feedback/${id}`, { method: 'DELETE' })
 
-      setFeedback(feedback.filter((item) => item.id !== id))
+      setFeedback(() => feedback.filter((item) => item.id !== id))
     }
   }
 
@@ -81,17 +83,21 @@ export const FeedbackProvider = ({ children }) => {
 
     setFeedback(feedback.map((item) => (item.id === id ? data : item)))
 
-    setFeedbackEdit({
-      item: {},
-      edit: false,
+    setFeedbackEdit(() => {
+      return {
+        item: {},
+        edit: false,
+      }
     })
   }
 
   // Set item to be updated
   const editFeedback = (item) => {
-    setFeedbackEdit({
-      item,
-      edit: true,
+    setFeedbackEdit(() => {
+      return {
+        item,
+        edit: true,
+      }
     })
   }
 

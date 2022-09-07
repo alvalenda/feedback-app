@@ -5,19 +5,19 @@ import Button from './shared/Button'
 import RattingSelect from './RattingSelect'
 
 const FeedbackForm = ({ reverse }) => {
-  const [text, setText] = useState('')
-  const [rating, setRating] = useState(10)
-  const [message, setMessage] = useState('')
-  const [btnDisabled, setBtnDisabled] = useState(true)
+  const [text, setText] = useState(() => '')
+  const [rating, setRating] = useState(() => 10)
+  const [message, setMessage] = useState(() => '')
+  const [btnDisabled, setBtnDisabled] = useState(() => true)
 
   const { addFeedback, feedbackEdit, updateFeedback } =
     useContext(FeedbackContext)
 
   useEffect(() => {
     if (feedbackEdit.edit === true) {
-      setBtnDisabled(false)
-      setText(feedbackEdit.item.text)
-      setRating(feedbackEdit.item.rating)
+      setBtnDisabled(() => false)
+      setText(() => feedbackEdit.item.text)
+      setRating(() => feedbackEdit.item.rating)
     }
   }, [feedbackEdit])
 
@@ -26,17 +26,17 @@ const FeedbackForm = ({ reverse }) => {
     setText(newText)
 
     if (newText === '') {
-      setBtnDisabled(true)
-      setMessage(null)
+      setBtnDisabled(() => true)
+      setMessage(() => null)
       return
     }
     if (newText !== '' && newText.trim().length < 10) {
-      setBtnDisabled(true)
-      setMessage('Text must be at least 10 characters long')
+      setBtnDisabled(() => true)
+      setMessage(() => 'Text must be at least 10 characters long')
       return
     }
-    setBtnDisabled(false)
-    setMessage(null)
+    setBtnDisabled(() => false)
+    setMessage(() => null)
   }
 
   const handleSubmit = (e) => {
@@ -52,9 +52,9 @@ const FeedbackForm = ({ reverse }) => {
       addFeedback(newFeedback)
     }
 
-    //   setRating(10);
-    setBtnDisabled(true)
-    setText('')
+    setRating(() => 10)
+    setBtnDisabled(() => true)
+    setText(() => '')
   }
 
   return (
