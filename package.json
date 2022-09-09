@@ -1,7 +1,6 @@
 {
   "name": "feedback-app",
   "version": "0.1.0",
-  "homepage": "https://alvalenda.github.io/feedback-app",
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
@@ -24,9 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server --watch ./mocks/db.json --port 5000",
-    "dev": "concurrently \"npm run server\" \"npm start \"",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dev": "concurrently \"npm run server\" \"npm start \""
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
