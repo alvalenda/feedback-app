@@ -1,19 +1,24 @@
 export const feedbackData = [
-  {
-    id: 1,
-    rating: 10,
-    text: 'lorem ipsum dolor sit amet, consectetur adip. consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  },
-  {
-    id: 2,
-    rating: 9,
-    text: 'lorem ipsum dolor sit amet, consectetur adip. consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  },
-  {
-    id: 3,
-    rating: 8,
-    text: 'lorem ipsum dolor sit amet, consectetur adip. consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  },
+    {
+      "text": "Best product I've ever had!!!! :)",
+      "rating": 10,
+      "id": 1
+    },
+    {
+      "text": "First!!!!!! YOLO!",
+      "rating": 9,
+      "id": 2
+    },
+    {
+      "text": "I've heard that studies show that travel provides longer term happiness than buying physical goods. The memories last a lifetime!",
+      "rating": 8,
+      "id": 3
+    },
+    {
+      "text": "Seven and seven are fourteen, with another seven twenty one. Zaza is vanished, a zoom zoom zoom stays.",
+      "rating": 7,
+      "id": 4
+    },
 ]
 
 export const findFreeId = (list) => {
