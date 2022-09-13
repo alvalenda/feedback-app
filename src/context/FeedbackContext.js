@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
-import { feedbackData, findFreeId } from '../data/feedbackData'
+import { feedbackData } from '../data/feedbackData'
 
 const FeedbackContext = createContext()
 
