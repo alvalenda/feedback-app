@@ -16,10 +16,17 @@ export const FeedbackProvider = ({ children }) => {
   }, [])
 
   // Fetch feedback
-  const fetchFeedback = async () => {
-    const response = await fetch(`/feedback?_sort=id&_order=desc`)
-    const data = await response.json()
+//   const fetchFeedback = async () => {
+//     const response = await fetch(`/feedback?_sort=id&_order=desc`)
+//     const data = await response.json()
 
+//     setFeedback(data)
+//     setIsLoading(false)
+//   }
+  
+  const fetchFeedback = async () => {
+    const data = feedbackData
+    
     setFeedback(data)
     setIsLoading(false)
   }
